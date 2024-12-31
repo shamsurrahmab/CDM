@@ -1,25 +1,31 @@
-import logo from './logo.svg';
+// import logo from './logo.svg';
+// import Render from './Render';
 import './App.css';
-
-function App() {
-  return (
+ import React from 'react';
+ class App extends React.Component{
+constructor()
+{
+  super();
+  // console.warn("Constructore (Must Call First)")
+  this.state={name:"Sir Hammad"}
+}
+componentDidMount()
+{
+  console.warn("Componentdidmount (Must Call at Last)")
+}
+render()
+{
+  console.warn("Render (Must Call Second)")
+  // const[name,setName]=React.useState("Hammad Khan")
+  return(
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <h1 style={{color:"red"}}>Component Did_Mount {this.state.name}</h1>
+    <p>In case of state componentDidMount will Not work while Render will work</p>
+    <button style={{borderRadius:"30%",color:"blue",height:"40px",fontFamily:"impact",fontSize:"20px",width:"150px"}} onClick={()=>this.setState({name:"Sir Hammad Khan"})}>Update Name</button>
+    {/* <Render /> */}
+    {/* <button onClick={()=>setName("Sir Hammad Khan")}>update teacher</button> */}
     </div>
   );
 }
-
+}
 export default App;
